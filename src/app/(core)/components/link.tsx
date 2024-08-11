@@ -4,6 +4,11 @@ import NextLink from 'next/link';
 import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
+type LinkProps = {
+  href: string;
+  primary?: boolean;
+};
+
 const StyledLink = styled(NextLink)`
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
@@ -18,15 +23,11 @@ const StyledLink = styled(NextLink)`
   &:hover,
   :focus,
   :active {
-    color: #0070f3;
-    border-color: #0070f3;
+    color: ${({ theme }) => theme.colors.primary};
+    border-color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
-type LinkProps = {
-  href: string;
-};
-
-export default function Link({ href, children }: PropsWithChildren<LinkProps>) {
+export default function Link({ href, children, primary = false }: PropsWithChildren<LinkProps>) {
   return <StyledLink href={href}>{children}</StyledLink>;
 }

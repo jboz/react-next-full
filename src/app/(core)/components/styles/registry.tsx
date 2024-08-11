@@ -2,8 +2,8 @@
 
 import { useServerInsertedHTML } from 'next/navigation';
 import React, { useState } from 'react';
-import { DefaultTheme, ServerStyleSheet, StyleSheetManager, ThemeProvider } from 'styled-components';
-import { GlobalStyle } from './globalstyles';
+import { ServerStyleSheet, StyleSheetManager, ThemeProvider } from 'styled-components';
+import { GlobalStyle, theme } from './globalstyles';
 
 export default function StyledComponentsRegistry({ children }: { children: React.ReactNode }) {
   // Only create stylesheet once with lazy initial state
@@ -15,13 +15,6 @@ export default function StyledComponentsRegistry({ children }: { children: React
     styledComponentsStyleSheet.instance.clearTag();
     return <>{styles}</>;
   });
-
-  const theme: DefaultTheme = {
-    colors: {
-      primary: '#ddd',
-      secondary: '#0070f3'
-    }
-  };
 
   return (
     <ThemeProvider theme={theme}>

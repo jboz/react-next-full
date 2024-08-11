@@ -11,18 +11,22 @@ type ContainerProps = {
 };
 
 export const Container = ({ children, direction, centered, padding, gap = '2em' }: PropsWithChildren<ContainerProps>) => {
-  const _div = styled.div({
-    display: 'flex',
-    flexDirection: direction || 'column',
-    justifyContent: centered ? 'center' : undefined,
-    alignItems: centered ? 'center' : undefined,
-    width: '100%',
-    height: '100%',
-    padding,
-    gap
-  });
-
-  return <_div>{children}</_div>;
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: direction || 'column',
+        justifyContent: centered ? 'center' : undefined,
+        alignItems: centered ? 'center' : undefined,
+        width: '100%',
+        height: '100%',
+        padding,
+        gap
+      }}
+    >
+      {children}
+    </div>
+  );
 };
 
 export const Title = styled.h1`
@@ -33,7 +37,7 @@ export const Title = styled.h1`
   text-decoration: none;
 
   a {
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.complementary};
     text-decoration: none;
     &:hover,
     :focus,

@@ -7,7 +7,9 @@ export default function HomePage() {
       <Title>
         Welcome to <a href="https://nextjs.org">Next.js!</a>
       </Title>
-      <Link href="/about">About</Link>
+      <Link href="/about" primary={true}>
+        About
+      </Link>
     </Container>
   );
 }
