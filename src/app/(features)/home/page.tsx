@@ -1,10 +1,13 @@
-import { Title } from "@app/core/components/title";
+import Link from '@app/core/components/link';
+import { Container, Title } from '@app/core/components/styles/sharedstyles';
 
 export default function HomePage() {
   return (
-    <div>
-      <Title value="Welcome to Next.js!" />
-      <a href="/about">About</a>
-    </div>
+    <Container padding="2em" centered={true}>
+      <Title>
+        Welcome to <a href="https://nextjs.org">Next.js!</a>
+      </Title>
+      <Link href="/about">About</Link>
+    </Container>
   );
 }
