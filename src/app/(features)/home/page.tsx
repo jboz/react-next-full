@@ -1,4 +1,4 @@
-import Link from '@app/core/components/link';
+import { Link } from '@app/core/components/link';
 import { Container, Title } from '@app/core/components/styles/sharedstyles';
 
 export default function HomePage() {
@@ -7,9 +7,7 @@ export default function HomePage() {
       <Title>
         Welcome to <a href="https://nextjs.org">Next.js!</a>
       </Title>
-      <Link href="/about" primary={true}>
-        About
-      </Link>
+      <Link href="/about">About</Link>
     </Container>
   );
 }

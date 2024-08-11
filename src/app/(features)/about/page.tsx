@@ -1,4 +1,4 @@
-import Link from '@app/core/components/link';
+import { Link } from '@app/core/components/link';
 import { Container, Title } from '@app/core/components/styles/sharedstyles';
 
 export default function AboutPage() {

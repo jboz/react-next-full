@@ -1,7 +1,6 @@
 'use client';
 
 import NextLink from 'next/link';
-import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 type LinkProps = {
@@ -9,7 +8,7 @@ type LinkProps = {
   primary?: boolean;
 };
 
-const StyledLink = styled(NextLink)`
+export const Link = styled(NextLink)<{ primary?: boolean }>`
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
 
@@ -23,11 +22,7 @@ const StyledLink = styled(NextLink)`
   &:hover,
   :focus,
   :active {
-    color: ${({ theme }) => theme.colors.primary};
-    border-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme, primary }) => (primary ? theme.colors.primary : theme.colors.secondary)};
+    border-color: ${({ theme, primary }) => (primary ? theme.colors.primary : theme.colors.secondary)};
   }
 `;
-
-export default function Link({ href, children, primary = false }: PropsWithChildren<LinkProps>) {
-  return <StyledLink href={href}>{children}</StyledLink>;
-}
