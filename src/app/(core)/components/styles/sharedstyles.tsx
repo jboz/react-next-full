@@ -46,3 +46,12 @@ export const Title = styled.h1`
     }
   }
 `;
+
+export const Tabs = styled.div({
+  display: 'flex',
+  flexDirection: 'row',
+  position: 'absolute',
+  bottom: '1em',
+  height: '300px',
+  overflow: 'auto'
+});

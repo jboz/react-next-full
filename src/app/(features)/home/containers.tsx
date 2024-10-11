@@ -1,24 +1,23 @@
 'use client';
 
-import { Api, Todo } from '@app/core/api';
+import { Api, Container } from '@app/core/api';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-export const Todos = () => {
-  const [items, setItems] = useState<Todo[]>([]);
+export const Containers = () => {
+  const [items, setItems] = useState<Container[]>([]);
 
   useEffect(() => {
-    Api.todos.then(items => setItems(items.slice(0, 15)));
+    Api.containers.then(items => setItems(items.slice(0, 15)));
   }, []);
 
   return (
     <Elements>
-      <h1>Todos: </h1>
+      <h1>Containers: </h1>
       {items.map((item, i) => (
-        <div key={i}>
-          <div>{item.id}</div>
-          <div>{item.title}</div>
-        </div>
+        <a key={i} href={item.host}>
+          {item.name}
+        </a>
       ))}
     </Elements>
   );
@@ -27,13 +26,12 @@ export const Todos = () => {
 const Elements = styled.div({
   display: 'flex',
   flexDirection: 'column',
-  '& > div + div': {
+  '& > a + a': {
     borderTop: 'solid 1px white'
   },
-  '& > div': {
+  '& > a': {
     padding: '1em',
     fontSize: 'large',
-    display: 'flex',
-    gap: '1em'
+    display: 'inline-block'
   }
 });
